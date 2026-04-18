@@ -1,11 +1,11 @@
 {
-    "name": "portfolio_dev",
-    "short_name": "portfolio_dev",
+    "name": "flutter_portfolio",
+    "short_name": "flutter_portfolio",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A Flutter project to shocase the skills.",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
