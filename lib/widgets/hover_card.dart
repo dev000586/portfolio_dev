@@ -28,7 +28,6 @@ class _HoverCardState extends State<HoverCard>
   bool _hovered = false;
   late AnimationController _ctrl;
   late Animation<double> _scaleAnim;
-  late Animation<double> _elevAnim;
 
   @override
   void initState() {
@@ -40,7 +39,6 @@ class _HoverCardState extends State<HoverCard>
     _scaleAnim = Tween<double>(begin: 1.0, end: 1.03).animate(
       CurvedAnimation(parent: _ctrl, curve: Curves.easeOut),
     );
-    _elevAnim = Tween<double>(begin: 0, end: 1).animate(_ctrl);
   }
 
   @override
@@ -80,7 +78,7 @@ class _HoverCardState extends State<HoverCard>
                   boxShadow: _hovered
                       ? [
                           BoxShadow(
-                            color: const Color(0xFF6C63FF).withOpacity(0.25),
+                            color: const Color(0xFF6C63FF).withValues(alpha: 0.25),
                             blurRadius: 24,
                             spreadRadius: 2,
                             offset: const Offset(0, 8),

@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../data/portfolio_data.dart';
 import '../theme/app_theme.dart';
 import '../theme/theme_provider.dart';
@@ -48,8 +47,8 @@ class _PortfolioNavBarState extends State<PortfolioNavBar> {
       decoration: BoxDecoration(
         color: _scrolled
             ? (isDark
-                ? AppColors.darkSurface.withOpacity(0.96)
-                : AppColors.lightSurface.withOpacity(0.96))
+                ? AppColors.darkSurface.withValues(alpha: 0.96)
+                : AppColors.lightSurface.withValues(alpha: 0.96))
             : Colors.transparent,
         border: _scrolled
             ? Border(
@@ -60,7 +59,7 @@ class _PortfolioNavBarState extends State<PortfolioNavBar> {
               )
             : null,
         boxShadow: _scrolled
-            ? [BoxShadow(color: Colors.black.withOpacity(0.08), blurRadius: 20)]
+            ? [BoxShadow(color: Colors.black.withValues(alpha: 0.08), blurRadius: 20)]
             : [],
       ),
       child: Padding(
@@ -189,8 +188,8 @@ class _NavItemState extends State<_NavItem> {
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
           decoration: BoxDecoration(
             color: widget.active
-                ? AppColors.accent.withOpacity(0.12)
-                : (_hovered ? AppColors.accent.withOpacity(0.06) : Colors.transparent),
+                ? AppColors.accent.withValues(alpha: 0.12)
+                : (_hovered ? AppColors.accent.withValues(alpha: 0.06) : Colors.transparent),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Text(

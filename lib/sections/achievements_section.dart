@@ -113,21 +113,21 @@ class _AchievementCardState extends State<_AchievementCard> {
       onExit: (_) => setState(() => _hovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 250),
-        transform: Matrix4.identity()..translate(0.0, _hovered ? -4.0 : 0.0),
+        transform: Matrix4.identity()..translateByDouble(0.0, _hovered ? -4.0 : 0.0, 0.0, 1.0),
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
           color: isDark ? AppColors.darkCard : AppColors.lightSurface,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: _hovered
-                ? color.withOpacity(0.5)
+                ? color.withValues(alpha: 0.5)
                 : (isDark ? AppColors.darkBorder : AppColors.lightBorder),
             width: 1.5,
           ),
           boxShadow: _hovered
               ? [
                   BoxShadow(
-                      color: color.withOpacity(0.15),
+                      color: color.withValues(alpha: 0.15),
                       blurRadius: 24,
                       spreadRadius: 2)
                 ]
@@ -142,7 +142,7 @@ class _AchievementCardState extends State<_AchievementCard> {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: color.withOpacity(0.12),
+                      color: color.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: Icon(_icon(), color: color, size: 24),
@@ -152,7 +152,7 @@ class _AchievementCardState extends State<_AchievementCard> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
-                      color: color.withOpacity(0.1),
+                      color: color.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Text(

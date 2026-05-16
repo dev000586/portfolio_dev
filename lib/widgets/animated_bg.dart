@@ -71,7 +71,7 @@ class _BgPainter extends CustomPainter {
           size.height * (0.1 + 0.08 * cos(t * pi)),
         ),
         radius: size.width * 0.22,
-        color: AppColors.accent.withOpacity(isDark ? 0.08 : 0.06),
+        color: AppColors.accent.withValues(alpha: isDark ? 0.08 : 0.06),
       ),
       _Blob(
         center: Offset(
@@ -79,7 +79,7 @@ class _BgPainter extends CustomPainter {
           size.height * (0.3 + 0.1 * sin(t * pi * 1.3)),
         ),
         radius: size.width * 0.18,
-        color: AppColors.accentAlt.withOpacity(isDark ? 0.06 : 0.05),
+        color: AppColors.accentAlt.withValues(alpha: isDark ? 0.06 : 0.05),
       ),
       _Blob(
         center: Offset(
@@ -87,7 +87,7 @@ class _BgPainter extends CustomPainter {
           size.height * (0.7 + 0.05 * cos(t * pi * 1.1)),
         ),
         radius: size.width * 0.16,
-        color: AppColors.accentPink.withOpacity(isDark ? 0.05 : 0.04),
+        color: AppColors.accentPink.withValues(alpha: isDark ? 0.05 : 0.04),
       ),
     ];
 

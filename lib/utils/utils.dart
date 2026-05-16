@@ -19,9 +19,9 @@ class Utils {
 
     // Remove .0 if whole number
     if (half == 0) {
-      return '${years}+';
+      return '$years+';
     } else {
-      return '${total}+';
+      return '$total+';
     }
   }
 }

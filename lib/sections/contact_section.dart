@@ -88,7 +88,6 @@ class _ContactInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
 
     final iconMap = {
       'github': FontAwesomeIcons.github,
@@ -144,12 +143,12 @@ class _ContactInfo extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  AppColors.accentGreen.withOpacity(0.1),
-                  AppColors.accent.withOpacity(0.1),
+                  AppColors.accentGreen.withValues(alpha: 0.1),
+                  AppColors.accent.withValues(alpha: 0.1),
                 ],
               ),
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.accentGreen.withOpacity(0.3)),
+              border: Border.all(color: AppColors.accentGreen.withValues(alpha: 0.3)),
             ),
             child: Row(
               children: [
@@ -235,7 +234,7 @@ class _ContactInfoCardState extends State<_ContactInfoCard> {
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
               color: _hovered
-                  ? AppColors.accent.withOpacity(0.4)
+                  ? AppColors.accent.withValues(alpha: 0.4)
                   : (isDark ? AppColors.darkBorder : AppColors.lightBorder),
             ),
           ),
@@ -244,7 +243,7 @@ class _ContactInfoCardState extends State<_ContactInfoCard> {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: AppColors.accent.withOpacity(0.1),
+                  color: AppColors.accent.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Icon(widget.icon, color: AppColors.accent, size: 20),
@@ -311,7 +310,7 @@ class _SocialCardButtonState extends State<_SocialCardButton> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           decoration: BoxDecoration(
             color: _hovered
-                ? AppColors.accent.withOpacity(0.12)
+                ? AppColors.accent.withValues(alpha: 0.12)
                 : (isDark ? AppColors.darkCard : AppColors.lightSurface),
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
@@ -499,11 +498,11 @@ class _ContactFormState extends State<_ContactForm> {
                   padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
                     color: (_result == 'success' ? AppColors.accentGreen : AppColors.accentPink)
-                        .withOpacity(0.1),
+                        .withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
                       color: (_result == 'success' ? AppColors.accentGreen : AppColors.accentPink)
-                          .withOpacity(0.3),
+                          .withValues(alpha: 0.3),
                     ),
                   ),
                   child: Row(
@@ -542,7 +541,6 @@ class _AnimatedFormField extends StatefulWidget {
   final String hint;
   final IconData prefixIcon;
   final int maxLines;
-  final TextInputType? keyboardType;
   final String? Function(String?)? validator;
 
   const _AnimatedFormField({
@@ -551,7 +549,6 @@ class _AnimatedFormField extends StatefulWidget {
     required this.hint,
     required this.prefixIcon,
     this.maxLines = 1,
-    this.keyboardType,
     this.validator,
   });
 
@@ -573,13 +570,12 @@ class _AnimatedFormFieldState extends State<_AnimatedFormField> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14),
           boxShadow: _focused
-              ? [BoxShadow(color: AppColors.accent.withOpacity(0.15), blurRadius: 12, spreadRadius: 1)]
+              ? [BoxShadow(color: AppColors.accent.withValues(alpha: 0.15), blurRadius: 12, spreadRadius: 1)]
               : [],
         ),
         child: TextFormField(
           controller: widget.controller,
           maxLines: widget.maxLines,
-          keyboardType: widget.keyboardType,
           validator: widget.validator,
           style: TextStyle(
             color: isDark ? Colors.white : const Color(0xFF1A1A2E),
@@ -636,10 +632,10 @@ class _SubmitButtonState extends State<_SubmitButton> {
             gradient: widget.onTap != null
                 ? const LinearGradient(colors: AppColors.primaryGradient)
                 : null,
-            color: widget.onTap == null ? Colors.grey.withOpacity(0.3) : null,
+            color: widget.onTap == null ? Colors.grey.withValues(alpha: 0.3) : null,
             borderRadius: BorderRadius.circular(14),
             boxShadow: _hovered && widget.onTap != null
-                ? [BoxShadow(color: AppColors.accent.withOpacity(0.4), blurRadius: 20, offset: const Offset(0, 6))]
+                ? [BoxShadow(color: AppColors.accent.withValues(alpha: 0.4), blurRadius: 20, offset: const Offset(0, 6))]
                 : [],
           ),
           child: Center(

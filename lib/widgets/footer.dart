@@ -152,7 +152,7 @@ class _FooterSocialIconState extends State<_FooterSocialIcon> {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-              color: _hovered ? AppColors.accent.withOpacity(0.12) : Colors.transparent,
+              color: _hovered ? AppColors.accent.withValues(alpha: 0.12) : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
                 color: _hovered ? AppColors.accent : AppColors.darkBorder,

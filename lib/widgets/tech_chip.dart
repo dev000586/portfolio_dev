@@ -29,7 +29,7 @@ class TechChip extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
         decoration: BoxDecoration(
           color: selected
-              ? chipColor.withOpacity(0.2)
+              ? chipColor.withValues(alpha: 0.2)
               : (isDark ? AppColors.darkCard : AppColors.lightCard),
           borderRadius: BorderRadius.circular(30),
           border: Border.all(
