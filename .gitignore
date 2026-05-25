@@ -43,3 +43,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/functions/.eslintrc.js
+/.firebaserc
+/functions/.gitignore
+/firebase.json
+/firestore.indexes.json
+/firestore.rules
+/.firebase/hosting.cHVibGlj.cache
+/.firebase/hosting.YnVpbGQvd2Vi.cache
+/public/index.html
+/functions/index.js
+/functions/package.json
+/skills-lock.json

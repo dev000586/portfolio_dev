@@ -110,11 +110,11 @@ class _TimelineItem extends StatelessWidget {
                     color: experience.isCurrent ? null : AppColors.darkBorder,
                     border: experience.isCurrent
                         ? null
-                        : Border.all(color: AppColors.accent.withOpacity(0.5), width: 2),
+                        : Border.all(color: AppColors.accent.withValues(alpha: 0.5), width: 2),
                     boxShadow: experience.isCurrent
                         ? [
                             BoxShadow(
-                              color: AppColors.accent.withOpacity(0.4),
+                              color: AppColors.accent.withValues(alpha: 0.4),
                               blurRadius: 10,
                               spreadRadius: 2,
                             )
@@ -136,8 +136,8 @@ class _TimelineItem extends StatelessWidget {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            AppColors.accent.withOpacity(0.5),
-                            AppColors.accent.withOpacity(0.1),
+                            AppColors.accent.withValues(alpha: 0.5),
+                            AppColors.accent.withValues(alpha: 0.1),
                           ],
                         ),
                       ),
@@ -159,14 +159,14 @@ class _TimelineItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     color: isExpanded
-                        ? AppColors.accent.withOpacity(0.4)
+                        ? AppColors.accent.withValues(alpha: 0.4)
                         : (isDark ? AppColors.darkBorder : AppColors.lightBorder),
                     width: isExpanded ? 1.5 : 1,
                   ),
                   boxShadow: isExpanded
                       ? [
                           BoxShadow(
-                            color: AppColors.accent.withOpacity(0.08),
+                            color: AppColors.accent.withValues(alpha: 0.08),
                             blurRadius: 20,
                             spreadRadius: 2,
                           )

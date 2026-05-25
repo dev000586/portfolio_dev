@@ -209,7 +209,7 @@ class _TechTagState extends State<_TechTag> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           color: _hovered
-              ? widget.color.withOpacity(0.15)
+              ? widget.color.withValues(alpha: 0.15)
               : (isDark ? AppColors.darkCard : AppColors.lightSurface),
           borderRadius: BorderRadius.circular(30),
           border: Border.all(
@@ -218,7 +218,7 @@ class _TechTagState extends State<_TechTag> {
           boxShadow: _hovered
               ? [
                   BoxShadow(
-                    color: widget.color.withOpacity(0.2),
+                    color: widget.color.withValues(alpha: 0.2),
                     blurRadius: 12,
                   ),
                 ]

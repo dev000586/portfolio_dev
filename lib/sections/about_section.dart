@@ -261,7 +261,6 @@ class _AboutRight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -291,10 +290,10 @@ class _AboutRight extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 14, vertical: 7),
                         decoration: BoxDecoration(
-                          color: AppColors.accent.withOpacity(0.1),
+                          color: AppColors.accent.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(30),
                           border: Border.all(
-                              color: AppColors.accent.withOpacity(0.3)),
+                              color: AppColors.accent.withValues(alpha: 0.3)),
                         ),
                         child: Text(
                           tag,
@@ -311,7 +310,7 @@ class _AboutRight extends StatelessWidget {
         if (visible)
           FadeInUp(
             delay: const Duration(milliseconds: 500),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Wrap(
@@ -374,7 +373,7 @@ class _ProgressItem extends StatelessWidget {
                 child: CircularProgressIndicator(
                   value: value,
                   strokeWidth: 5,
-                  backgroundColor: color.withOpacity(0.15),
+                  backgroundColor: color.withValues(alpha: 0.15),
                   valueColor: AlwaysStoppedAnimation<Color>(color),
                 ),
               ),

@@ -9,7 +9,6 @@ import '../data/portfolio_data.dart';
 import '../services/navigation_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/section_header.dart';
-import '../widgets/hover_card.dart';
 import '../widgets/tech_chip.dart';
 
 const int _kInitialProjectCount = 4;
@@ -97,12 +96,12 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             if (_visible)
               isMobile
                   ? _MobileProjects(
-                key: ValueKey('${_selectedFilter}_${_expanded}'),
+                key: ValueKey('${_selectedFilter}_$_expanded'),
                 projects: _visibleProjects,
                 visible: _visible,
               )
                   : _DesktopProjects(
-                key: ValueKey('${_selectedFilter}_${_expanded}'),
+                key: ValueKey('${_selectedFilter}_$_expanded'),
                 projects: _visibleProjects,
                 visible: _visible,
               ),
@@ -207,13 +206,13 @@ class _ExpandButtonState extends State<_ExpandButton> {
             border: Border.all(
               color: _hovered
                   ? Colors.transparent
-                  : AppColors.accent.withOpacity(0.4),
+                  : AppColors.accent.withValues(alpha: 0.4),
               width: 1.5,
             ),
             boxShadow: _hovered
                 ? [
               BoxShadow(
-                color: AppColors.accent.withOpacity(0.25),
+                color: AppColors.accent.withValues(alpha: 0.25),
                 blurRadius: 20,
                 spreadRadius: 2,
               )
@@ -416,14 +415,14 @@ class _FeaturedProjectCardState extends State<_FeaturedProjectCard> {
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
             color: _hovered
-                ? AppColors.accent.withOpacity(0.4)
+                ? AppColors.accent.withValues(alpha: 0.4)
                 : (isDark ? AppColors.darkBorder : AppColors.lightBorder),
             width: _hovered ? 1.5 : 1,
           ),
           boxShadow: _hovered
               ? [
             BoxShadow(
-                color: AppColors.accent.withOpacity(0.12),
+                color: AppColors.accent.withValues(alpha: 0.12),
                 blurRadius: 30,
                 spreadRadius: 3)
           ]
@@ -465,11 +464,11 @@ class _FeaturedProjectCardState extends State<_FeaturedProjectCard> {
                                   horizontal: 12, vertical: 4),
                               decoration: BoxDecoration(
                                 color:
-                                AppColors.accentOrange.withOpacity(0.15),
+                                AppColors.accentOrange.withValues(alpha: 0.15),
                                 borderRadius: BorderRadius.circular(30),
                                 border: Border.all(
                                     color: AppColors.accentOrange
-                                        .withOpacity(0.3)),
+                                        .withValues(alpha: 0.3)),
                               ),
                               child: const Text(
                                 '⭐ Featured',
@@ -639,19 +638,19 @@ class _RegularProjectCardState extends State<_RegularProjectCard> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 250),
         transform: Matrix4.identity()
-          ..translate(0.0, _hovered ? -4.0 : 0.0),
+          ..translateByDouble(0.0, _hovered ? -4.0 : 0.0, 0.0, 1.0),
         decoration: BoxDecoration(
           color: isDark ? AppColors.darkCard : AppColors.lightSurface,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: _hovered
-                ? AppColors.accent.withOpacity(0.4)
+                ? AppColors.accent.withValues(alpha: 0.4)
                 : (isDark ? AppColors.darkBorder : AppColors.lightBorder),
           ),
           boxShadow: _hovered
               ? [
             BoxShadow(
-                color: AppColors.accent.withOpacity(0.12),
+                color: AppColors.accent.withValues(alpha: 0.12),
                 blurRadius: 20,
                 offset: const Offset(0, 8))
           ]
@@ -878,7 +877,7 @@ class _ProjectImagePlaceholder extends StatelessWidget {
               height: 100,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.05),
+                color: Colors.white.withValues(alpha: 0.05),
               ),
             ),
           ),
@@ -890,7 +889,7 @@ class _ProjectImagePlaceholder extends StatelessWidget {
               height: 120,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.05),
+                color: Colors.white.withValues(alpha: 0.05),
               ),
             ),
           ),
@@ -935,7 +934,7 @@ class _CategoryBadge extends StatelessWidget {
       decoration: BoxDecoration(
         color: d.$2.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(color: d.$2.withOpacity(0.3)),
+        border: Border.all(color: d.$2.withValues(alpha: 0.3)),
       ),
       child: Text(
         d.$1,

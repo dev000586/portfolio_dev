@@ -145,7 +145,7 @@ class _HeroText extends StatelessWidget {
         FadeInUp(
           delay: const Duration(milliseconds: 500),
           child: Text(
-            PortfolioData.aboutDescription.split('. ').take(2).join('. ') + '.',
+            '${PortfolioData.aboutDescription.split('. ').take(2).join('. ')}.',
             style: theme.textTheme.bodyLarge?.copyWith(
               height: 1.7,
               fontSize: 15,
@@ -235,7 +235,7 @@ class _HeroAvatarState extends State<_HeroAvatar>
               Positioned(
                 bottom: 20,
                 right: 40,
-                child: _FloatingBadge(label: Utils.getExperience(PortfolioData.startDate), icon: Icon(Icons.code, size: 14,)),
+                child: _FloatingBadge(label: Utils.getExperience(PortfolioData.startDate), icon: const Icon(Icons.code, size: 14,)),
               ),
               Positioned(
                 top: 20,
@@ -291,7 +291,7 @@ class _HeroAvatarState extends State<_HeroAvatar>
             ),
             boxShadow: [
               BoxShadow(
-                color: AppColors.accent.withOpacity(0.4),
+                color: AppColors.accent.withValues(alpha: 0.4),
                 blurRadius: 40,
                 spreadRadius: 5,
               ),
@@ -328,7 +328,7 @@ class _FloatingBadge extends StatelessWidget {
         border: Border.all(color: AppColors.darkBorder),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.black.withValues(alpha: 0.2),
             blurRadius: 12,
           ),
         ],
@@ -403,7 +403,7 @@ class _SocialIconState extends State<_SocialIcon> {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: _hovered
-                  ? AppColors.accent.withOpacity(0.15)
+                  ? AppColors.accent.withValues(alpha: 0.15)
                   : Colors.transparent,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
@@ -450,7 +450,7 @@ class _PrimaryButtonState extends State<_PrimaryButton> {
             boxShadow: _hovered
                 ? [
                     BoxShadow(
-                      color: AppColors.accent.withOpacity(0.4),
+                      color: AppColors.accent.withValues(alpha: 0.4),
                       blurRadius: 20,
                       offset: const Offset(0, 6),
                     ),
@@ -496,7 +496,7 @@ class _OutlineButtonState extends State<_OutlineButton> {
           padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 14),
           decoration: BoxDecoration(
             color: _hovered
-                ? AppColors.accent.withOpacity(0.1)
+                ? AppColors.accent.withValues(alpha: 0.1)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(14),
             border: Border.all(

@@ -197,13 +197,13 @@ class AppTheme {
         fontSize: 18, fontWeight: FontWeight.w600, color: baseColor,
       ),
       bodyLarge: GoogleFonts.dmSans(
-        fontSize: 16, fontWeight: FontWeight.w400, color: baseColor.withOpacity(0.85),
+        fontSize: 16, fontWeight: FontWeight.w400, color: baseColor.withValues(alpha: 0.85),
       ),
       bodyMedium: GoogleFonts.dmSans(
-        fontSize: 14, fontWeight: FontWeight.w400, color: baseColor.withOpacity(0.75),
+        fontSize: 14, fontWeight: FontWeight.w400, color: baseColor.withValues(alpha: 0.75),
       ),
       labelLarge: GoogleFonts.dmMono(
-        fontSize: 13, fontWeight: FontWeight.w500, color: baseColor.withOpacity(0.8),
+        fontSize: 13, fontWeight: FontWeight.w500, color: baseColor.withValues(alpha: 0.8),
         letterSpacing: 0.5,
       ),
     );
