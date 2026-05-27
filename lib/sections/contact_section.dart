@@ -130,7 +130,7 @@ class _ContactInfo extends StatelessWidget {
             runSpacing: 14,
             children: PortfolioData.socialLinks.map((s) {
               return _SocialCardButton(
-                icon: iconMap[s.icon] ?? FontAwesomeIcons.link,
+                icon: iconMap[s.icon]?.data ?? FontAwesomeIcons.link.data,
                 label: s.label,
                 url: s.url,
               );
@@ -323,7 +323,7 @@ class _SocialCardButtonState extends State<_SocialCardButton> {
             mainAxisSize: MainAxisSize.min,
             children: [
               FaIcon(
-                widget.icon,
+                FaIconData(widget.icon),
                 size: 15,
                 color: _hovered ? AppColors.accent : Colors.grey,
               ),

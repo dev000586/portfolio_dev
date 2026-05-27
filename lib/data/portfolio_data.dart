@@ -355,6 +355,76 @@ class PortfolioData {
       stats: {'Type': 'Security', 'Feature': '2FA'},
     ),
     Project(
+      title: 'Run The Day',
+      subtitle: 'Sports Event Management Platform',
+      description:
+      'Developed and maintained a cross-platform Flutter application for sports event and tournament management, enabling users to organize, track, and participate in events seamlessly.',
+      techStack: ['Flutter', 'REST API'],
+      categories: [ProjectCategory.mobile],
+      featured: false,
+      githubUrl: '',
+      liveUrl: '',
+      androidUrl:
+      'https://play.google.com/store/apps/details?id=com.droid.eseosports',
+      iosUrl:
+      'https://apps.apple.com/in/app/run-the-day-formerly-eseo/id1589957665',
+      imageAsset: 'assets/images/project_run_the_day.png',
+      stats: {'Domain': 'Sports'},
+    ),
+    Project(
+      title: 'GP World',
+      subtitle: 'Lifestyle & Rewards Platform',
+      description:
+      'Built a feature-rich Flutter application for the Gourmet Planet ecosystem, providing users with an engaging platform for exploring services, rewards, and personalized experiences.',
+      techStack: ['Flutter', 'REST API'],
+      categories: [ProjectCategory.mobile],
+      featured: false,
+      githubUrl: '',
+      liveUrl: '',
+      androidUrl:
+      'https://play.google.com/store/apps/details?id=com.gourmetplanet.gpapplication',
+      iosUrl:
+      'https://apps.apple.com/in/app/gp-world/id1638079441',
+      imageAsset: 'assets/images/project_gp_world.png',
+      stats: {'Domain': 'Lifestyle'},
+    ),
+
+    Project(
+      title: 'Rhubarb - Garden AI Superapp',
+      subtitle: 'AI Powered Gardening Platform',
+      description:
+      'Developed an AI-powered Flutter super app focused on smart gardening and plant care solutions with modern UI/UX and scalable architecture.',
+      techStack: ['Flutter', 'AI', 'REST API'],
+      categories: [ProjectCategory.mobile],
+      featured: false,
+      githubUrl: '',
+      liveUrl: '',
+      androidUrl:
+      'https://play.google.com/store/apps/details?id=com.rhubarblabs.rhubarb',
+      iosUrl:
+      'https://apps.apple.com/us/app/rhubarb-garden-ai-superapp/id6474530874',
+      imageAsset: 'assets/images/project_rhubarb.png',
+      stats: {'Domain': 'AI & Gardening'},
+    ),
+
+    Project(
+      title: 'ClearVisit',
+      subtitle: 'Visitor Management Solution',
+      description:
+      'Developed a Flutter-based visitor management and appointment solution with secure authentication, real-time notifications, and optimized cross-platform performance.',
+      techStack: ['Flutter', 'REST API', 'Firebase'],
+      categories: [ProjectCategory.mobile],
+      featured: false,
+      githubUrl: '',
+      liveUrl: '',
+      androidUrl:
+      'https://play.google.com/store/apps/details?id=com.clearvisit.prod&hl=en_IN',
+      iosUrl:
+      'https://apps.apple.com/in/app/clearvisit/id6752611256',
+      imageAsset: 'assets/images/project_clearvisit.png',
+      stats: {'Domain': 'Enterprise'},
+    ),
+    Project(
       title: 'Adapt Aware',
       subtitle: 'Safety & Threat Awareness App',
       description:
@@ -401,8 +471,23 @@ class PortfolioData {
       liveUrl: 'https://pub.dev/packages/ql_logger_flutter',
       androidUrl: '',
       iosUrl: '',
-      imageAsset: 'assets/images/project_logger.png',
+      imageAsset: 'assets/images/icon_package.png',
       stats: {'Type': 'Plugin', 'Focus': 'Logging'},
+    ),
+    Project(
+      title: 'flutter_perf_guard',
+      subtitle: 'Open Source Performance Monitoring Plugin',
+      description:
+      'Developed a Flutter plugin for monitoring app performance, detecting frame drops, and improving runtime stability with lightweight integration.',
+      techStack: ['Flutter', 'Dart', 'Open Source'],
+      categories: [ProjectCategory.openSource],
+      featured: false,
+      githubUrl: 'https://pub.dev/packages/flutter_perf_guard',
+      liveUrl: 'https://pub.dev/packages/flutter_perf_guard',
+      androidUrl: '',
+      iosUrl: '',
+      imageAsset: 'assets/images/icon_package.png',
+      stats: {'Type': 'Plugin', 'Focus': 'Performance'},
     ),
     Project(
       title: 'iGym SG & Trainer',

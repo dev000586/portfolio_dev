@@ -367,7 +367,7 @@ class _SocialRow extends StatelessWidget {
       spacing: 16,
       children: PortfolioData.socialLinks.map((s) {
         return _SocialIcon(
-          icon: iconMap[s.icon] ?? FontAwesomeIcons.link,
+          icon: iconMap[s.icon]?.data ?? FontAwesomeIcons.link.data,
           url: s.url,
           label: s.label,
         );
@@ -411,7 +411,7 @@ class _SocialIconState extends State<_SocialIcon> {
               ),
             ),
             child: FaIcon(
-              widget.icon,
+              FaIconData(widget.icon),
               size: 18,
               color: _hovered ? AppColors.accent : Colors.grey,
             ),
