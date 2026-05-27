@@ -15,11 +15,11 @@ class PortfolioFooter extends StatelessWidget {
     final theme = Theme.of(context);
 
     final iconMap = {
-      'github': FontAwesomeIcons.github,
-      'linkedin': FontAwesomeIcons.linkedin,
-      'twitter': FontAwesomeIcons.xTwitter,
-      'medium': FontAwesomeIcons.medium,
-      'youtube': FontAwesomeIcons.youtube,
+      'github': FontAwesomeIcons.github.data,
+      'linkedin': FontAwesomeIcons.linkedin.data,
+      'twitter': FontAwesomeIcons.xTwitter.data,
+      'medium': FontAwesomeIcons.medium.data,
+      'youtube': FontAwesomeIcons.youtube.data,
     };
 
     return Container(
@@ -113,7 +113,7 @@ class _SocialIcons extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.only(left: 12),
           child: _FooterSocialIcon(
-            icon: iconMap[s.icon] ?? FontAwesomeIcons.link,
+            icon: iconMap[s.icon] ?? FontAwesomeIcons.link.data,
             url: s.url,
             label: s.label,
           ),
@@ -160,7 +160,7 @@ class _FooterSocialIconState extends State<_FooterSocialIcon> {
             ),
             child: Center(
               child: FaIcon(
-                widget.icon,
+                FaIconData(widget.icon),
                 size: 15,
                 color: _hovered ? AppColors.accent : Colors.grey,
               ),

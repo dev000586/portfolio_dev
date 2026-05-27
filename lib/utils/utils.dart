@@ -1,4 +1,7 @@
 
+import 'package:flutter/material.dart';
+import 'package:palette_generator_master/palette_generator_master.dart';
+
 class Utils {
   static String getExperience(DateTime startDate) {
     final now = DateTime.now();
@@ -23,5 +26,25 @@ class Utils {
     } else {
       return '$total+';
     }
+  }
+
+  static Future<List<Color>> generatePalette(String imagePath) async {
+    await Future.delayed(const Duration(milliseconds: 100));
+    final ImageProvider imageProvider = AssetImage(imagePath);
+
+    final PaletteGeneratorMaster paletteGenerator =
+    await PaletteGeneratorMaster.fromImageProvider(
+      imageProvider,
+      maximumColorCount: 16,
+      generateHarmony: true,      // Generate color harmony
+    );
+
+    // Access extracted colors
+    final Color? dominantColor = paletteGenerator.dominantColor?.color;
+    final Color? vibrantColor = paletteGenerator.vibrantColor?.color;
+    final Color? mutedColor = paletteGenerator.mutedColor?.color;
+
+    List<Color> colors = [dominantColor ?? const Color(0xFF6C63FF), vibrantColor ?? const Color(0xFF00E5FF), mutedColor ?? const Color(0xFFFFFFFF)];
+    return colors;
   }
 }

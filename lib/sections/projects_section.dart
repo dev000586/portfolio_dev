@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter_portfolio/utils/utils.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
@@ -488,19 +489,24 @@ class _FeaturedProjectCardState extends State<_FeaturedProjectCard> {
                             borderRadius: BorderRadiusGeometry.circular(8),
                             child: Image.asset(p.imageAsset, height: 30, width: 30,
                             errorBuilder: (context, error, stackTrace) {
-                              return Container(
-                                height: 30,
-                                width: 30,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: AppColors.getProjectGradient(p.categories),
-                                  ),
-                                ),
-                                child: Text(p.title.substring(0, 1,).toUpperCase(),
-                                style: theme.textTheme.headlineSmall,),
+                              return FutureBuilder(
+                                future: Utils.generatePalette(widget.project.imageAsset),
+                                builder: (context, asyncSnapshot) {
+                                  return Container(
+                                    height: 30,
+                                    width: 30,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        colors: asyncSnapshot.data != null ? asyncSnapshot.data! : AppColors.getProjectGradient(p.categories),
+                                      ),
+                                    ),
+                                    child: Text(p.title.substring(0, 1,).toUpperCase(),
+                                    style: theme.textTheme.headlineSmall,),
+                                  );
+                                }
                               );
                             },),
                           ),
@@ -735,19 +741,24 @@ class _RegularProjectCardState extends State<_RegularProjectCard> {
                             borderRadius: BorderRadiusGeometry.circular(8),
                             child: Image.asset(p.imageAsset, height: 30, width: 30,
                               errorBuilder: (context, error, stackTrace) {
-                                return Container(
-                                  height: 30,
-                                  width: 30,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                      colors: AppColors.getProjectGradient(p.categories),
-                                    ),
-                                  ),
-                                  child: Text(p.title.substring(0, 1,).toUpperCase(),
-                                    style: theme.textTheme.titleMedium,),
+                                return FutureBuilder(
+                                  future: Utils.generatePalette(widget.project.imageAsset),
+                                  builder: (context, asyncSnapshot) {
+                                    return Container(
+                                      height: 30,
+                                      width: 30,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                          colors: asyncSnapshot.data != null ? asyncSnapshot.data! : AppColors.getProjectGradient(p.categories),
+                                        ),
+                                      ),
+                                      child: Text(p.title.substring(0, 1,).toUpperCase(),
+                                        style: theme.textTheme.titleMedium,),
+                                    );
+                                  }
                                 );
                               },),
                           ),
@@ -829,72 +840,77 @@ class _ProjectImagePlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: AppColors.getProjectGradient(project.categories),
-        ),
-      ),
-      child: Stack(
-        children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
+    return FutureBuilder(
+      future: Utils.generatePalette(project.imageAsset),
+      builder: (context, asyncSnapshot) {
+        return Container(
+          height: height,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: asyncSnapshot.data != null ? asyncSnapshot.data! : AppColors.getProjectGradient(project.categories),
+            ),
+          ),
+          child: Stack(
+            children: [
+              Center(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: project.categories
-                      .map((category) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      _categoryIcon(category),
-                      size: 48,
-                      color: Colors.white.withValues(alpha: 0.4),
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: project.categories
+                          .map((category) => Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(
+                          _categoryIcon(category),
+                          size: 48,
+                          color: Colors.white.withValues(alpha: 0.4),
+                        ),
+                      ))
+                          .toList(),
                     ),
-                  ))
-                      .toList(),
+                    const SizedBox(height: 8),
+                    Text(
+                      project.title,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  project.title,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
+              ),
+              Positioned(
+                top: -20,
+                right: -20,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white.withValues(alpha: 0.05),
                   ),
                 ),
-              ],
-            ),
-          ),
-          Positioned(
-            top: -20,
-            right: -20,
-            child: Container(
-              width: 100,
-              height: 100,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withValues(alpha: 0.05),
               ),
-            ),
-          ),
-          Positioned(
-            bottom: -30,
-            left: -30,
-            child: Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withValues(alpha: 0.05),
+              Positioned(
+                bottom: -30,
+                left: -30,
+                child: Container(
+                  width: 120,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white.withValues(alpha: 0.05),
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      }
     );
   }
 
@@ -981,7 +997,7 @@ class _ActionButton extends StatelessWidget {
           children: [
             icon is IconData
                 ? Icon(icon as IconData, size: 14, color: Colors.white)
-                : FaIcon(icon as IconData, size: 14, color: Colors.white),
+                : FaIcon(icon, size: 14, color: Colors.white),
             const SizedBox(width: 6),
             Text(
               label,
